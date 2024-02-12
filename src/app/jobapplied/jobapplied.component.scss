@@ -1,0 +1,73 @@
+.jobAppliedContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.appliedDetails {
+  margin-top: 11rem;
+  width: 95%;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 1.4px 1.4px 8px 0px #0000003d;
+  padding: 1.8rem;
+  position: relative;
+  hr {
+    height: 1px;
+    background-color: #0000003d;
+    border: none;
+  }
+  .checkImage {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 9rem;
+      height: 9rem;
+    }
+    position: absolute;
+    top: -5rem;
+    left: -0.1rem;
+  }
+  .appliedMsg {
+    text-align: center;
+    margin-top: 3.4rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  .dateTime,
+  .address,
+  .thingsToRemember {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    .title {
+      color: #666666;
+      font-size: 1.3rem;
+    }
+    .date,
+    .time,
+    .venue,
+    .points {
+      margin-top: 0.6rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
+  .DownloadBtn {
+    text-align: center;
+    margin-top: 3rem;
+    button {
+      font-weight: 600;
+      height: 3rem;
+      width: 18rem;
+      outline: none;
+      border: none;
+      background-color: #3fd28b;
+      border-radius: 0.3rem;
+      box-shadow: 1px 1px 3px 0px #666666;
+      cursor: pointer;
+    }
+  }
+}

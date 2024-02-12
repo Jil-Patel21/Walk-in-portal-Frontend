@@ -1,0 +1,81 @@
+<form action="" class="form" [formGroup]="form">
+  <div class="basicDetails"  formGroupName="perosnalInfo">
+    <div class="nameDetails">
+      <div class="inp">
+        <p>First Name*</p>
+        <input type="text" formControlName="firstName" />
+      </div>
+      <div class="inp">
+        <p>Last Name*</p>
+        <input type="text" formControlName="lastName" />
+      </div>
+      <div class="inp">
+        <p>Email*</p>
+        <input type="email" formControlName="email" />
+      </div>
+      <div class="PhoneNumber">
+        <p>Phone Number*</p>
+        <div class="number">
+          <p>+</p>
+          <input
+            type="text"
+            formControlName="phoneNumDomain"
+          />&nbsp;&nbsp;<input type="text" formControlName="phoneNum" />
+        </div>
+      </div>
+      <div class="resumeUpload">
+        <div class="image">
+          <img
+            src="https://t4.ftcdn.net/jpg/01/64/16/59/360_F_164165971_ELxPPwdwHYEhg4vZ3F4Ej7OmZVzqq4Ov.jpg"
+            alt=""
+          />
+        </div>
+        <button>UPLOAD UPDATED RESUME</button>
+      </div>
+      <div class="inp">
+        <p>Enter Portfolio URL (if any)</p>
+        <input type="text" formControlName="portfolioUrl" />
+      </div>
+      <div class="pref">
+        <p>Select Your Preference :</p>
+        <div class="checkInp" *ngFor="let data of jobRoles; let i = index">
+          <input
+            type="checkbox"
+            name="roles"
+            [value]="data.name"
+            (change)="onCheckboxChange($event)"
+            [checked]="checkArr[i]"
+          />
+          &nbsp;&nbsp;{{ data.name }}
+        </div>
+      </div>
+      <div class="inp">
+        <p>
+          If You Are Registering Via A Referral, Please Mention Full Name Of The
+          Employee Who Referred You
+        </p>
+        <input type="text" formControlName="registerViaReferral" />
+      </div>
+      <div class="checkBox">
+        <input type="checkbox" value="Send me job related updates via mail" (change)="onchange($event)" [checked]="sendUpdate" />&nbsp;Send me job related updates via mail
+      </div>
+    </div>
+    <div class="imageDetails">
+      <div class="personalImg">
+        <img
+          src="https://cdn.icon-icons.com/icons2/3250/PNG/512/person_circle_filled_icon_202012.png"
+          alt=""
+        />
+      </div>
+      <div class="updateImg">
+        <button>UPLOAD DISPLAY PICTURE</button>
+        <p>Max. image size: 5 MB</p>
+      </div>
+    </div>
+  </div>
+  <div class="nextBtn">
+    <button (click)="submitPersonalInfo()" [disabled]="form.get('perosnalInfo').invalid" >
+      NEXT
+    </button>
+  </div>
+</form>

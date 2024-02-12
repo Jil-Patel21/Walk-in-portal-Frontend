@@ -1,0 +1,63 @@
+<div class="registerNavbar">
+  <div class="navbarItems">
+    <div class="backImg">
+      <img src="assets/back.png" alt="" />
+    </div>
+    <div class="title">
+      <p>Create An Account</p>
+    </div>
+    <div class="btns">
+      <div class="cancelBtn">
+        <button (click)="onCancelBtn()">CANCEL</button>
+      </div>
+      <div class="createBtn">
+        <button [disabled]="isBtnDisable" (click)="onCreateBtn()">CREATE</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="standUpDetails">
+    <div class="detailsOverview">
+      <div class="number" [ngClass]="{'progressBarColor':isDisaable[0].clr}">
+        <span class="material-symbols-outlined" *ngIf="isDisaable[0].icon">
+          edit
+        </span>
+        <span *ngIf="!isDisaable[0].icon">
+          1
+        </span>
+      </div>
+      <p>Personal Information</p>
+        
+    </div>
+    <!-- <div class="one"> -->
+      <hr>
+    <!-- </div> -->
+    <div class="qualifications">
+      <div class="number" [ngClass]="{'progressBarColor':isDisaable[1].clr}">
+        <span class="material-symbols-outlined" *ngIf="isDisaable[1].icon">
+          edit
+        </span>
+        <span *ngIf="!isDisaable[1].icon">
+          2
+        </span>
+      </div>
+      <p>Qualification</p>
+    </div>
+    <!-- <div class="second"> -->
+      <hr>
+    <!-- </div> -->
+    <div class="detailsOverview">
+      <div class="number" [ngClass]="{'progressBarColor':isDisaable[2].clr}">
+        <span *ngIf="!isDisaable[2].icon">
+          3
+        </span>
+      </div>
+      <p>Review and Proceed</p>
+    </div>
+  </div>
+  <div class="components">
+    <router-outlet>
+    </router-outlet>
+  </div>
+</div>

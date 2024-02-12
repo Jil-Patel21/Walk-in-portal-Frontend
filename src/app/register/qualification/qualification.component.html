@@ -1,0 +1,286 @@
+<form action="" class="section" [formGroup]="form">
+  <div class="qualificationsInfo" formGroupName="qualificationInfo">
+    <div class="eduTitle">
+      <div class="title">
+        <p>Educational Qualifications</p>
+      </div>
+      <div class="img">
+        <img src="https://www.svgrepo.com/show/93813/up-arrow.svg" alt="" />
+      </div>
+    </div>
+    <div class="eduQualification">
+      <div class="inp">
+        <p>Aggregate Percentage*</p>
+        <div class="eduQualificationDetail">
+          <input
+            type="text"
+            placeholder=""
+            formControlName="aggegatePercentage"
+          />
+        </div>
+      </div>
+      <div class="inp">
+        <p>Year of Passing*</p>
+        <div class="eduQualificationDetail">
+          <select name="" id="" formControlName="yearOfPassing">
+            <option value="2020">2020</option>
+            <option value="2022">2022</option>
+            <option value="2024">2024</option>
+          </select>
+        </div>
+      </div>
+      <div class="eduDetail">
+        <div class="gridDiv">
+          <p>Qualification*</p>
+          <div class="eduInfo">
+            <select name="" id="" formControlName="qualification">
+              <option value="B.Tech">B.Tech</option>
+              <option value="BCA">BCA</option>
+              <option value="MCA">MCA</option>
+            </select>
+          </div>
+        </div>
+        <div class="gridDiv">
+          <p>Stream*</p>
+          <div class="eduInfo">
+            <select name="" id="" formControlName="stream">
+              <option value="science">science</option>
+              <option value="commerce">commerce</option>
+              <option value="arts">arts</option>
+            </select>
+          </div>
+        </div>
+        <div class="gridDiv">
+          <p>College*</p>
+          <div class="eduInfo">
+            <select name="" id="" formControlName="college">
+              <option value="L.D">L.D</option>
+              <option value="L.J">L.J</option>
+              <option value="L.M">L.M</option>
+            </select>
+          </div>
+        </div>
+        <div class="gridDiv Other">
+          <p>If others, please enter your college name</p>
+          <div class="eduInfo">
+            <input type="text" placeholder="" formControlName="otherCollege" />
+          </div>
+        </div>
+      </div>
+      <div class="inpLast">
+        <p>Where is your college located?*</p>
+        <div class="eduQualificationDetail">
+          <input type="text" placeholder="" formControlName="collegeLocation" />
+        </div>
+      </div>
+    </div>
+    <div class="profTitle">
+      <div class="title">
+        <p>Educational Qualifications</p>
+      </div>
+      <div class="img">
+        <img src="https://www.svgrepo.com/show/93813/up-arrow.svg" alt="" />
+      </div>
+    </div>
+    <div class="profQualification">
+      <div class="inpLast">
+        <p>Applicant Type*</p>
+        <div class="profQualificationDetailRadio">
+          <input
+            type="radio"
+            value="Fresher"
+            formControlName="applicantType"
+            (click)="onClickApplicantTypeExp()"
+          />&nbsp;&nbsp;Fresher
+          <input
+            type="radio"
+            value="Experienced"
+            formControlName="applicantType"
+            (click)="onClickApplicantTypeFre()"
+          />&nbsp;&nbsp;Experienced
+        </div>
+      </div>
+    </div>
+    <div class="profQualificationExp">
+      <div
+        class="exp"
+        [ngClass]="{ expReverse: diplayExp }"
+        formArrayName="expForm"
+      >
+        <div
+          *ngFor="
+            let d of form.get('qualificationInfo.expForm')['controls'];
+            let i = index
+          "
+          [formGroupName]="i"
+        >
+          <div class="inp">
+            <p>Years of Experience*</p>
+            <div class="profQualificationDetail">
+              <input type="text" formControlName="yearOfPassing" />
+            </div>
+          </div>
+          <div class="inp">
+            <p>Current CTC*(In Rupees)</p>
+            <div class="profQualificationDetail">
+              <input type="text" formControlName="currentCTC" />
+            </div>
+          </div>
+          <div class="inp">
+            <p>Expected CTC*(In Rupees)</p>
+            <div class="profQualificationDetail">
+              <input type="text" formControlName="expectedCTC" />
+            </div>
+          </div>
+          <div class="expertiseTechnology">
+            <p class="technologyTitle">
+              Select All The Technologies You Expertise In*
+            </p>
+            <div class="technologyCheckbox">
+              <div class="cheboxes" *ngFor="let data of Tech; let i = index">
+                <input
+                  type="checkbox"
+                  [value]="data.name"
+                  (change)="onCheckboxChangeExpertise($event)"
+                  [checked]="checkExpert[i]"
+                />&nbsp;&nbsp;{{ data.name }}
+              </div>
+            </div>
+            <p class="other">If others, please mention</p>
+            <div class="technology">
+              <input type="text" formControlName="otherExpertiseTech" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="familiarTechnology">
+        <p class="technologyTitle">
+          Select All The Technologies You are familiar In
+        </p>
+        <div class="technologyCheckbox">
+          <div class="cheboxes" *ngFor="let data of Tech; let i = index">
+            <input
+              type="checkbox"
+              [value]="data.name"
+              (change)="onCheckboxChangeFamiliar($event)"
+              [checked]="checkFamiliar[i]"
+            />&nbsp;&nbsp;{{ data.name }}
+          </div>
+        </div>
+        <p class="other">If others, please mention</p>
+        <div class="technology">
+          <input type="text" formControlName="otherFamiliarTech" />
+        </div>
+      </div>
+        
+        <div class="noticePeriodDiv"
+         [ngClass]="{ expReverse: diplayExp }" 
+         formArrayName="expForm"
+         >
+        <div
+          *ngFor="
+            let d of form.get('qualificationInfo.expForm')['controls'];
+            let j = index
+          "
+          [formGroupName]="j"
+        >
+          <div class="isNoticePeriod">
+            <p>Are you currently on notice period?*</p>
+            <div class="profQualificationDetailRadio">
+              <input
+                type="radio"
+                value="yes"
+                formControlName="isOnNoticePeriod"
+                (click)="onClickNoticeYes()"
+              />&nbsp;&nbsp;Yes
+              <input
+                type="radio"
+                value="No"
+                formControlName="isOnNoticePeriod"
+                (click)="onClickNoticeNo()"
+              />&nbsp;&nbsp;No
+            </div>
+          </div>
+          <div
+            class="noticePeriod"
+            [ngClass]="{ noticePeriodReverse: displayNotice }"
+            formArrayName="noticeInfo"
+          >
+            <div
+              *ngFor="
+                let d of form.get('qualificationInfo.expForm')['controls'][0].get('noticeInfo')['controls']
+                let j = index
+              "
+              [formGroupName]="j"
+            >
+              <div class="noticePeriodInfo">
+                <p>If Yes, when will your notice period end?*</p>
+                <div class="profQualificationDetail">
+                  <input type="text" formControlName="noticePeriodEnd" />
+                </div>
+              </div>
+              <div class="noticePeriodInfo">
+                <p>How long is your notice period? (Mention in months)*</p>
+                <div class="profQualificationDetail">
+                  <select name="" id="" formControlName="noticePeriodDuration">
+                    <option value="1">1 month</option>
+                    <option value="2">2 month</option>
+                    <option value="3">3 month</option>
+                    <option value="4">4 month</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testDetail">
+        <div class="isTest">
+          <p>Have You Appeared For Any Test By Zeus in the past 12 months?*</p>
+          <div class="profQualificationDetailRadio">
+            <input
+              type="radio"
+              value="yes"
+              formControlName="appliedForAnyTestInZeus"
+              (click)="onClickTestYes()"
+            />&nbsp;&nbsp;Yes
+            <input
+              type="radio"
+              value="No"
+              formControlName="appliedForAnyTestInZeus"
+              (click)="onClickTestNo()"
+            />&nbsp;&nbsp;No
+          </div>
+        </div>
+        <div
+          class="inpLast"
+          [ngClass]="{ TestReverse: displayTest }"
+          formArrayName="zeusTest"
+        >
+          <div
+            *ngFor="
+              let d of form.get('qualificationInfo.zeusTest')['controls'];
+              let i = index
+            "
+            [formGroupName]="i"
+          >
+            <p>If Yes, which role did you apply for?*</p>
+            <div class="profQualificationDetail">
+              <input type="text" formControlName="previousRoleApplyFor" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="prevBtn">
+    <button class="previous" (click)="onSubmitPrevious()">Previous</button>
+    <button
+      class="previous"
+      (click)="onSubmitNext()"
+      [disabled]="form.get('qualificationInfo').invalid"
+    >
+      Next
+    </button>
+  </div>
+</form>

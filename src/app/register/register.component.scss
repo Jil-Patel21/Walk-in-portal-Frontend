@@ -1,0 +1,137 @@
+.registerNavbar .navbarItems{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #3C4E62;
+  padding: 0 2rem 0rem 2rem;
+  height: 5rem;
+  .backImg{
+      display: flex;
+      align-items: center;
+      img{
+          cursor: pointer;
+          height: 2rem;
+          width: 2rem;  
+          filter: brightness(2);
+      }    
+  } 
+  .title{
+      color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.6rem;
+      font-weight: lighter;
+      font-weight: 600;
+  }
+  .btns{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      button{
+          padding: 0.35rem 1.3rem 0.35rem 1.3rem;
+          margin-left: 1rem;
+          background-color: #3FD28B;
+          border-radius: 2px;
+          font-size: 1.3rem;
+          border: none;
+          box-shadow: 0px 3px 5px #0000003D;
+          font-weight: 600;
+          cursor: pointer;
+      }
+  }
+}
+.container {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.standUpDetails {
+  margin-top: 3rem;
+  width: 95%;
+  background-color: white;
+  box-shadow: 1px 1px 4px 0px #0000003d;
+  border-radius: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem;
+  height: 6rem;
+  // .lines {
+  //   width: 100%;
+  //   display: flex;
+  //   justify-content: center;
+  //   .oneLine {
+  //     width: 96%;
+  //     height: 0.1rem;
+  //     background-color: #666666;
+  //   }
+  // }
+  // .one,.second{
+    // width: 60%;
+    // width: auto;
+    hr {
+      width: 28%;
+      border: 0.18vh solid #eeeeee;
+    }
+  // }
+  .detailsOverview {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 0.1rem;
+      margin-right: 0.8rem;
+      // background-color: #3fd28b;
+      background-color:#757575;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    .progressBarColor{
+      background-color: #3fd28b;
+    }
+    p {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+  }
+  .qualifications{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 0.1rem;
+      margin-right: 0.8rem;
+      // background-color: #3fd28b;
+      background-color: #757575;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    .progressBarColor{
+      background-color: #3fd28b;
+    }
+    p {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+  }
+ 
+}
+.components {
+  margin-top: 4rem;
+  width: 95%;
+}

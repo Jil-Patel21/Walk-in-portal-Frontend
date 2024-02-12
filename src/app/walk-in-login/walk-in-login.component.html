@@ -1,0 +1,56 @@
+<div class="content">
+    <div class="line">
+
+    </div>
+   <form class="form">
+        <div class="title">
+            <p>
+                Log in
+            </p>
+        </div>
+        <div class="emailPassword">
+            <div class="email">
+                <div class="inp">
+                    <input type="text" name="" placeholder="Email ID*">
+                </div>
+                <div class="forget">
+                    <p>
+                        FORGOT EMAIL ID?
+                    </p>
+                </div>
+            </div>
+            <div class="password">
+                <div class="inp">
+                    <input type="password" name="" placeholder="Password*" #image>
+                    <img src="assets/preview.png" alt="hyy it's" (click)="showPassword()">
+                </div>
+                <div class="forget">
+                    <p>
+                        FORGOT PASSWORD?
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="logBtn">
+            <div class="remember">
+                <input type="checkbox">&nbsp;Remember Me
+            </div>
+            <div class="btn">
+                <button (click)="onSubmitLogin()">
+                    LOG IN
+                </button>
+            </div>
+        </div>
+        <div class="acc">
+            <p>
+                Not registered yet?
+            </p>
+            <button (click)="onSubmitAcc()">
+                CREATE AN ACCOUNT
+            </button>
+        </div>
+   </form>
+   <div class="aboutContact">
+          <button>About</button>&nbsp; <span>|</span> &nbsp; <button>Contact</button>
+   </div>
+</div>

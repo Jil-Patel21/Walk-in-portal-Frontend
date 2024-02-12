@@ -1,0 +1,257 @@
+.section{
+    padding-top: 1.5rem;
+}
+
+.personalInfoTitle, .qualificationsInfoTitle{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-size: 1.7rem;
+    .editDiv{
+        display: flex;
+        align-items: center;
+        color: #1F7A54;
+        cursor: pointer;
+        img{
+            height: 1.2rem;
+            width: 1.2rem;
+            padding-right: 0.2rem;
+        }
+    }
+}
+
+.personalInfo{
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 4px 0px #0000003d;
+    border-radius: 0.4rem;
+    padding: 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.7rem;
+    position: relative;
+    .nameDetails {
+        .inp {
+          margin-bottom: 2.5rem;
+          p {
+            font-size: 1.4rem;
+            color: #666666;
+          }
+          .personalDetail {
+            margin-top: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+          }
+        }
+        .PhoneNumber {
+          margin-bottom: 3rem;
+          > p {
+            font-size: 1.4rem;
+            color: #666666;
+          }
+          .number {
+            margin-top: 1rem;
+            display: flex;
+            font-weight: 600;
+            p {
+              margin-right: 0.5rem;
+            }
+            .personalDetail{
+                font-size: 1.4rem;
+            }
+          }
+        }
+        .resumeUpload {
+          display: flex;
+          align-items: center;
+          margin-bottom: 3rem;
+          cursor: pointer;
+          .image {
+            img {
+              height: 3rem;
+              width: 3rem;
+            }
+          }
+          button {
+            color: #222222;
+            background-color: white;
+            outline: none;
+            border: none;
+            font-weight: 600;
+            margin-left: 0.2rem;
+            font-size: 1.3rem;
+          }
+          .resumeDetail{
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-left: 0.6rem;
+          }
+        }
+        .pref {
+          margin-bottom: 3rem;
+          p {
+            font-size: 1.4rem;
+            color: #666666;
+          }
+          .preferredJobRoleDetail{
+            margin-top: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+          }
+        }
+        .checkBox {
+          font-size: 1.4rem;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          input {
+            height: 1.4rem;
+            width: 1.4rem;
+            accent-color: black;
+            margin-right: 0.4rem;
+          }
+        }
+      }
+    }
+    .imageDetails {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+       
+      .personalImg {
+        img {
+          border-radius: 50%;
+          height: 14rem;
+          width: 15rem;
+        }
+      }  
+}
+
+// **** Qualification
+
+.qualificationsInfo{
+  
+    .eduTitle , .profTitle{
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        background-color: #DBEFFF;
+        font-size: 1.4rem;
+        padding:0rem 1.5rem 0rem 1.5rem;
+        box-shadow: 1px 1px 4px 0px #0000003d;
+        border-radius: 0.4rem;
+    }
+    .eduQualification, .profQualification ,.profQualificationExp{
+        background-color: #FFFFFF;
+        border-radius: 2px;
+        margin-bottom: 1.5rem;
+        padding: 1.5rem ;
+        box-shadow: 1px 1px 4px 0px #0000003d;
+        border-radius: 0.4rem;
+        .inp {
+            margin-bottom: 2.5rem;
+            p {
+              font-size: 1.4rem;
+              color: #666666;
+            }
+            .eduQualificationDetail, .profQualificationDetail{
+              margin-top: 1rem;
+              font-size: 1.3rem;
+              font-weight: 600;
+            }
+        } 
+        .inpLast {
+            p {
+              font-size: 1.4rem;
+              color: #666666;
+            }
+            .eduQualificationDetail, .profQualificationDetail {
+              margin-top: 1rem;
+              font-size: 1.3rem;
+              font-weight: 600;
+            }
+        } 
+        .eduDetail{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            .gridDiv{
+                margin-bottom: 2.5rem;
+                p {
+                    font-size: 1.4rem;
+                    color: #666666;
+                }
+                .eduInfo {
+                    margin-top: 1rem;
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+.qualificationsInfo .profQualificationExp{
+    .expertiseTechnology , .familiarTechnology{
+        margin-bottom: 2.5rem;
+        .technologyTitle {
+            font-size:1.4rem;
+            color: #666666;
+        }
+        .other{
+            font-size:1.4rem;
+            color: #666666;
+            margin-top: 1rem;
+        }
+        .technology {
+            margin-top: 0.7rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+    }
+
+    .noticePeriodDiv .isNoticePeriod, .testDetail .isTest{
+        margin-bottom: 1.1rem;
+        p {
+            font-size:1.4rem;
+            color: #666666;
+        }
+        .profQualificationDetail {
+            margin-top: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+    }
+    .noticePeriod{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .noticePeriodInfo{
+            margin-bottom: 2.5rem;
+            p {
+                font-size:1.4rem;
+                color: #666666;
+            }
+            .profQualificationDetail {
+                margin-top: 1rem;
+                font-size: 1.3rem;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.prevBtn{
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+.previous{
+  height: 2.6rem;
+  width: 10rem;
+  outline: none;
+  border: none;
+  background-color: #3fd28b;
+  border-radius: 0.3rem;
+  box-shadow: 1px 1px 3px 0px #0000003d;
+  cursor: pointer;
+  margin-left: 1.5rem;
+  text-transform: uppercase;
+}

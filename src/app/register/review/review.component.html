@@ -1,0 +1,215 @@
+<div class="section">
+    <div class="personalInfoTitle">
+      <div>Personal Information</div>
+      <div class="editDiv">
+        <img
+          src="https://cdn.iconscout.com/icon/free/png-256/free-edit-mode-pencil-tool-change-30495.png"
+          alt=""
+        />
+        <div class="editTitle" (click)="onEditPi()">Edit</div>
+      </div>
+    </div>
+    <div class="personalInfo">
+      <div class="nameDetails">
+        <div class="inp">
+          <p>First Name</p>
+          <div class="personalDetail">{{form.get('perosnalInfo').value.firstName}}</div>
+        </div>
+        <div class="inp">
+          <p>Last Name</p>
+          <div class="personalDetail">{{form.get('perosnalInfo').value.lastName}}</div>
+        </div>
+        <div class="inp">
+          <p>Email</p>
+          <div class="personalDetail">{{form.get('perosnalInfo').value.email}}</div>
+        </div>
+        <div class="PhoneNumber">
+          <p>Phone Number</p>
+          <div class="number">
+            <p>+</p>
+            <div class="personalDetail">{{form.get('perosnalInfo').value.phoneNumDomain}} {{form.get('perosnalInfo').value.phoneNum}}</div>
+          </div>
+        </div>
+        <div class="resumeUpload">
+          <div class="image">
+            <img
+              src="https://t4.ftcdn.net/jpg/01/64/16/59/360_F_164165971_ELxPPwdwHYEhg4vZ3F4Ej7OmZVzqq4Ov.jpg"
+              alt=""
+            />
+          </div>
+          <button>UPLOAD RESUME</button>
+          <div class="resumeDetail">Resume.pdf</div>
+        </div>
+        <div class="inp">
+          <p>Enter Portfolio URL (if any)</p>
+          <div class="personalDetail" *ngIf="form.get('perosnalInfo').value.portfolioUrl===''">-</div>
+          <div class="personalDetail" *ngIf="form.get('perosnalInfo').value.portfolioUrl!==''">{{form.get('perosnalInfo').value.portfolioUrl}}</div>
+        </div>
+        <div class="pref">
+          <p>Preferred Job Roles</p>
+          <div class="preferredJobRoleDetail" *ngFor="let role of form.get('perosnalInfo').value.preferRoles">
+            {{role}}
+          </div>
+          <div class="preferredJobRoleDetail" *ngIf="form.get('perosnalInfo').value.preferRoles==0">
+            -
+          </div>
+        </div>
+        <div class="inp">
+          <p>
+            If You Are Registering Via A Referral, Please Mention Full Name
+            Of The Employee Who Referred You
+          </p>
+          <div class="personalDetail" *ngIf="form.get('perosnalInfo').value.registerViaReferral===''">-</div>
+          <div class="personalDetail" *ngIf="form.get('perosnalInfo').value.registerViaReferral!==''">{{form.get('perosnalInfo').value.registerViaReferral}}</div>
+        </div>
+        <div class="checkBox">
+          <input type="checkbox" [checked]="check" />
+          Send me job related updates via mail
+        </div>
+      </div>
+      <div class="imageDetails">
+        <div class="personalImg">
+          <img
+            src="https://t3.ftcdn.net/jpg/01/86/34/08/360_F_186340800_qlgVLkKLVy19r6SEL7RnniP1Yz6dmq8T.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="qualificationsInfoTitle">
+      <div>Qualification</div>
+      <div class="editDiv">
+        <img
+          src="https://cdn.iconscout.com/icon/free/png-256/free-edit-mode-pencil-tool-change-30495.png"
+          alt=""
+        />
+        <div class="editTitle" (click)="onSubmitPrevious()">Edit</div>
+      </div>
+    </div>
+
+    <div class="qualificationsInfo">
+      <div class="eduTitle">Educational Qualifications</div>
+      <div class="eduQualification">
+        <div class="inp">
+          <p>Aggregate Percentage</p>
+          <div class="eduQualificationDetail">{{form.get('qualificationInfo').value.aggegatePercentage}}</div>
+        </div>
+        <div class="inp">
+          <p>Year of Passing</p>
+          <div class="eduQualificationDetail">{{form.get('qualificationInfo').value.yearOfPassing}}</div>
+        </div>
+        <div class="eduDetail">
+          <div class="gridDiv">
+            <p>Qualification</p>
+            <div class="eduInfo">{{form.get('qualificationInfo').value.qualification}}</div>
+          </div>
+          <div class="gridDiv">
+            <p>Stream</p>
+            <div class="eduInfo">{{form.get('qualificationInfo').value.stream}}</div>
+          </div>
+          <div class="gridDiv">
+            <p>College</p>
+            <div class="eduInfo">
+              {{form.get('qualificationInfo').value.college}}
+            </div>
+          </div>
+          <div class="gridDiv">
+            <p>If others, please enter your college name</p>
+            <div class="eduInfo" *ngIf="form.get('qualificationInfo').value.otherCollege===''">-</div>
+            <div class="eduInfo" *ngIf="form.get('qualificationInfo').value.otherCollege!==''">{{form.get('qualificationInfo').value.otherCollege}}</div>
+          </div>
+        </div>
+
+        <div class="inpLast">
+          <p>Where is your college located?</p>
+          <div class="eduQualificationDetail">{{form.get('qualificationInfo').value.collegeLocation}}</div>
+        </div>
+      </div>
+
+      <div class="profTitle">Professional Qualifications</div>
+      <div class="profQualification">
+        <div class="inpLast">
+          <p>Applicant Type</p>
+          <div class="profQualificationDetail">{{form.get('qualificationInfo').value.applicantType}}</div>
+        </div>
+      </div>
+
+      <div class="profQualificationExp">
+        <div class="inp">
+          <p>Years of Experience</p>
+          <div class="profQualificationDetail" *ngIf="form.get('qualificationInfo.expForm')['controls'][0]===undefined">-</div>
+          <div class="profQualificationDetail" *ngIf="form.get('qualificationInfo.expForm')['controls'][0]!==undefined">{{form.get('qualificationInfo.expForm')['controls'][0].value.yearOfPassing}}</div>
+
+        </div>
+        <div class="inp">
+          <p>Current CTC (In Rupees)</p>
+          <div class="profQualificationDetail" *ngIf="form.get('qualificationInfo.expForm')['controls'][0]===undefined">-</div>
+          <div class="profQualificationDetail" *ngIf="form.get('qualificationInfo.expForm')['controls'][0]!==undefined">{{form.get('qualificationInfo.expForm')['controls'][0].value.currentCTC}}</div>
+        </div>
+        <div class="inp">
+          <p>Expected CTC (In Rupees)</p>
+          <div class="profQualificationDetail" *ngIf="form.get('qualificationInfo.expForm')['controls'][0]===undefined">-</div>
+          <div class="profQualificationDetail" *ngIf="form.get('qualificationInfo.expForm')['controls'][0]!==undefined">{{form.get('qualificationInfo.expForm')['controls'][0].value.expectedCTC}}</div>
+        </div>
+        <div class="expertiseTechnology">
+          <p class="technologyTitle">
+            Select All The Technologies You Expertise In
+          </p>
+          <div class="technology" *ngIf="form.get('qualificationInfo.expForm')['controls'][0]===undefined">-</div>
+          <div *ngIf="form.get('qualificationInfo.expForm')['controls'][0]!==undefined">
+            <div class="technology" *ngFor="let tech of form.get('qualificationInfo.expForm')['controls'][0].get('expertiseTech')['controls']">{{tech.value}}</div>
+          </div>
+          <p class="other">If others, please mention</p>
+          <div class="technology" *ngIf="form.get('qualificationInfo.expForm')['controls'][0]===undefined || form.get('qualificationInfo.expForm')['controls'][0].value.otherExpertiseTech===''">-</div>
+          <div class="technology" *ngIf="form.get('qualificationInfo.expForm')['controls'][0]!==undefined">{{form.get('qualificationInfo.expForm')['controls'][0].value.otherExpertiseTech}}</div>
+        </div>
+        <div class="familiarTechnology">
+          <p class="technologyTitle">
+            Select All The Technologies You are familiar In
+          </p>
+          <div class="technology" *ngIf="form.get('qualificationInfo.familiarTech')['controls'].length===0">-</div>
+          <div class="technology" *ngFor="let tech of form.get('qualificationInfo.familiarTech')['controls']">{{tech.value}}</div>
+          <p class="other">If others, please mention</p>
+          <div class="technology" *ngIf="form.get('qualificationInfo').value.otherFamiliarTech===''">-</div>
+          <div class="technology" *ngIf="form.get('qualificationInfo').value.otherFamiliarTech!==''">{{form.get('qualificationInfo').value.otherFamiliarTech}}</div>
+        </div>
+        <div class="noticePeriodDiv">
+          <div class="isNoticePeriod">
+            <p>Are you currently on notice period?</p>
+            <div class="profQualificationDetail"*ngIf="form.get('qualificationInfo.expForm')['controls'][0]===undefined">-</div>
+            <div class="profQualificationDetail"*ngIf="form.get('qualificationInfo.expForm')['controls'][0]!==undefined">{{form.get('qualificationInfo.expForm')['controls'][0].value.isOnNoticePeriod}}</div>
+          </div>
+          <div class="noticePeriod">
+            <div class="noticePeriodInfo">
+              <p>If Yes, when will your notice period end?</p>
+              <div class="profQualificationDetail" *ngIf="form.get('qualificationInfo.expForm')['controls'][0]===undefined">-</div>
+              <div class="profQualificationDetail" *ngIf="form.get('qualificationInfo.expForm')['controls'][0]!==undefined">{{form.get('qualificationInfo.expForm')['controls'][0].get('noticeInfo')['controls'][0].value.noticePeriodEnd}}</div>
+            </div>
+            <div class="noticePeriodInfo">
+              <p>How long is your notice period? (Mention in months)</p>
+              <div class="profQualificationDetail" *ngIf="form.get('qualificationInfo.expForm')['controls'][0]===undefined">-</div>
+              <div class="profQualificationDetail" *ngIf="form.get('qualificationInfo.expForm')['controls'][0]!==undefined">{{form.get('qualificationInfo.expForm')['controls'][0].get('noticeInfo')['controls'][0].value.noticePeriodEnd}}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testDetail">
+          <div class="isTest">
+            <p>
+              Have You Appeared For Any Test By Zeus in the past 12 months?
+            </p>
+            <div class="profQualificationDetail">{{form.get('qualificationInfo').value.appliedForAnyTestInZeus}}</div>
+          </div>
+          <div class="inpLast">
+            <p>If Yes, which role did you apply for?</p>
+            <div class="profQualificationDetail" *ngIf="form.get('qualificationInfo.zeusTest')['controls'][0]===undefined">-</div>
+            <div class="profQualificationDetail" *ngIf="form.get('qualificationInfo.zeusTest')['controls'][0]!==undefined">{{form.get('qualificationInfo.zeusTest')['controls'][0].value.previousRoleApplyFor}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="prevBtn">
+    <button class="previous" (click)="onSubmitPrevious()">Previous</button>
+  </div>

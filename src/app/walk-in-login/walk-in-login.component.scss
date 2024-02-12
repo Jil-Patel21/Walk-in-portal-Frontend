@@ -1,0 +1,161 @@
+@mixin felxSetting {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  height: auto;
+  @include felxSetting;
+  flex-direction: column;
+}
+.line {
+  margin-top: 10rem;
+  width: 40rem;
+  height: 0.5rem;
+  background-color: #3ac7ec;
+}
+.form {
+  width: 40rem;
+  border-radius: 0.5rem;
+  box-shadow: 1.4px 1.4px 8px 0px #0000003d;
+  background-color: white;
+  .title {
+    margin-top: 1.2rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  .emailPassword {
+    width: 40rem;
+    .email,
+    .password {
+      margin-top: 3rem;
+      width: 40rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .inp {
+        width: 92%;
+        display: flex;
+        input {
+          border: none;
+          outline: none;
+          width: 100%;
+        }
+        input::placeholder {
+          font-size: 1.4rem;
+        }
+        img{
+          margin-left: auto;
+          height: 2rem;
+          width: 2rem;
+          cursor: pointer;
+        }
+        border-bottom: 0.2px solid #d7d7d7;
+      }
+      .forget {
+        margin-top: 0.2rem;
+        width: 92%;
+        display: flex;
+        justify-content: flex-end;
+        font-size: 1.1rem;
+        color: #1f7a54;
+        font-weight: 600;
+      }
+    }
+  }
+  .logBtn {
+    .remember {
+      display: flex;
+      align-items: center;
+      margin-left: 1.6rem;
+      margin-top: 2.5rem;
+      img {
+        height: 2rem;
+        width: 2rem;
+      }
+      input {
+        accent-color: #3fd28b;
+      }
+      font-size: 1.5rem;
+    }
+    .btn {
+      margin-top: 2.5rem;
+      @include felxSetting;
+      margin-bottom: 2rem;
+      button {
+        background-color: #3fd28b;
+        color: black;
+        width: 15rem;
+        height: 3rem;
+        font-size: 1.3rem;
+        outline: none;
+        border: none;
+        box-shadow: 2px 2px #0000003d;
+        cursor: pointer;
+      }
+    }
+  }
+  .acc {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    p {
+      font-size: 1rem;
+    }
+    button {
+      font-size: 1.6rem;
+      color: #1f7a54;
+      width: 15rem;
+      height: 3rem;
+      font-size: 1.3rem;
+      background-color: white;
+      outline: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+.aboutContact{
+  margin-top: 6rem;
+  button{
+    border:none;
+    outline: none;
+    background-color: transparent;
+    color:#1F7A54;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  span{
+    color: #666666;
+  }
+}
+
+
+@media only screen and (max-width: 450px) {
+  .line {
+    width: 93%;
+  }
+  .form {
+    width: 93%;
+    .title {
+      margin-top: 1.2rem;
+      font-size: 1.8rem;
+    }
+    .emailPassword {
+      width: 100%;
+      .email,
+      .password {
+        margin-top: 3rem;
+        width: 100%;
+        .inp {
+          width: 93%;
+        }
+      }
+    }
+  }
+}

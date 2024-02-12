@@ -1,0 +1,43 @@
+<div class="jobContainer">
+  <div class="job"  *ngFor="let job of jobs;let i=index">
+    <div class="expires" *ngIf="job.expires.isExpire">
+        <p>{{job.expires.expireMsg}}</p>
+    </div>
+    <div class="jobTitle">
+      <div class="title">
+        <p>{{job.jobRole}}</p>
+      </div>
+      <button class="applyBtn" *ngIf="job.isApplyBtnPresent">APPLY</button>
+    </div>
+    <div class="dateTimeVenue">
+      <div class="dateTime">
+        <p>Date & Time :</p>
+      </div>
+      <div class="dateVenue">
+        <p>{{job.date}} | <span class="locationImage"><img src="https://static.vecteezy.com/system/resources/previews/000/552/683/non_2x/geo-location-pin-vector-icon.jpg" alt="" /></span>&nbsp;<span>{{job.location}}</span></p>
+      </div>
+    </div>
+    <hr />
+    <div class="jobRoles">
+      <div class="jobRoleName">
+        <p>
+            Job Roles :
+        </p>
+      </div>
+      <div class="roleNames">
+        <div class="roles" *ngFor="let jobRoles of job.jobRoles">
+            <img src="{{jobRoles.jobImage}}" alt="S" />
+            <p>{{jobRoles.jobRoleName}}</p>
+          </div>
+      </div>
+      <div class="mba" *ngIf="job.mba.isMbaInternship">
+         <p>
+            {{job.mba.mbaMsg}}
+         </p>
+      </div>
+    </div>
+    <div class="viewBtn" *ngIf="!job.isMoreDetailsBtnPresent">
+      <button (click)="onSubmit(i)">VIEW MORE DETAILS</button>
+    </div>
+  </div>
+</div>

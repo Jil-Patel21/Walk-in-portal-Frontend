@@ -1,0 +1,277 @@
+.section {
+  padding-top: 1.5rem;
+}
+// **** Qualification
+
+.qualificationsInfo {
+  .eduTitle,
+  .profTitle {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    background-color: #dbefff;
+    font-size: 1.7rem;
+    font-weight: 600;
+    box-shadow: 1px 1px 4px 0px #0000003d;
+    border-radius: 0.4rem;
+    .title {
+      padding: 0rem 2rem 0rem 2rem;
+    }
+    .img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 4rem;
+      width: 4rem;
+      margin-left: auto;
+      border-left: 1px solid #666666;
+      cursor: pointer;
+      img {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+    }
+  }
+  .eduQualification,
+  .profQualification,
+  .profQualificationExp {
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 2px;
+    margin-bottom: 2.5rem;
+    box-shadow: 1px 1px 4px 0px #0000003d;
+    border-radius: 0.4rem;
+    .inp {
+      margin-bottom: 4rem;
+      p {
+        font-size: 1.4rem;
+        color: #666666;
+      }
+      .eduQualificationDetail,
+      .profQualificationDetail {
+        margin-top: 2rem;
+        input {
+          font-size: 1.3rem;
+          font-weight: 600;
+          width: 20%;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid #666666;
+        }
+        select {
+          font-size: 1.3rem;
+          font-weight: 600;
+          width: 20%;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid #666666;
+        }
+      }
+    }
+    .inpLast {
+      p {
+        font-size: 1.4rem;
+        color: #666666;
+      }
+      .profQualificationDetailRadio {
+        display: flex;
+        align-items: center;
+        margin-top: 1.5rem;
+        font-size: 1.5rem;
+        input {
+          height: 1.8rem;
+          width: 1.8rem;
+          accent-color: #1f7a54;
+        }
+        input:nth-child(2) {
+          margin-left: 2rem;
+        }
+      }
+      .eduQualificationDetail,
+      .profQualificationDetail {
+        margin-top: 1.5rem;
+        input {
+          font-size: 1.3rem;
+          font-weight: 600;
+          width: 20%;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid #666666;
+        }
+      }
+    }
+    .eduDetail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      .Other {
+        margin-top: 0.22rem;
+      }
+      .gridDiv {
+        margin-bottom: 4rem;
+        p {
+          font-size: 1.4rem;
+          color: #666666;
+        }
+        .eduInfo {
+          margin-top: 2rem;
+          input {
+            font-size: 1.3rem;
+            font-weight: 600;
+            width: 90%;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #666666;
+          }
+          select {
+            font-size: 1.3rem;
+            font-weight: 600;
+            width: 90%;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #666666;
+          }
+        }
+      }
+    }
+  }
+}
+
+.qualificationsInfo .profQualificationExp {
+  .expertiseTechnology,
+  .familiarTechnology {
+    margin-bottom: 2.5rem;
+    .technologyTitle {
+      font-size: 1.4rem;
+      color: #666666;
+    }
+
+    .technologyCheckbox {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      .cheboxes {
+        font-size: 1.4rem;
+        margin: 0.8rem;
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        input {
+          height: 1.5rem;
+          width: 1.5rem;
+          accent-color: #1f7a54;
+        }
+      }
+    }
+    .other {
+      font-size: 1.4rem;
+      color: #666666;
+      margin-top: 1rem;
+    }
+    .technology {
+      margin-top: 0.7rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      input {
+        font-size: 1.3rem;
+        font-weight: 600;
+        width: 20%;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #666666;
+      }
+    }
+  }
+  .exp {
+    display: block;
+  }
+  .expReverse {
+    display: none;
+  }
+  .noticePeriodDiv .isNoticePeriod,
+  .testDetail .isTest {
+    margin-bottom: 1.1rem;
+    p {
+      font-size: 1.4rem;
+      color: #666666;
+    }
+
+    .profQualificationDetailRadio {
+      display: flex;
+      align-items: center;
+      margin-top: 1.5rem;
+      font-size: 1.5rem;
+      input {
+        height: 1.8rem;
+        width: 1.8rem;
+        accent-color: #1f7a54;
+      }
+      input:nth-child(2) {
+        margin-left: 2rem;
+      }
+    }
+    .profQualificationDetail {
+      margin-top: 1rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    
+  }
+  .testDetail{
+    .TestReverse {
+      display: none;
+    }
+  }
+  .noticePeriod > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 2.5rem;
+    .noticePeriodInfo {
+      margin-bottom: 2.5rem;
+      p {
+        font-size: 1.4rem;
+        color: #666666;
+      }
+
+      .profQualificationDetail {
+        margin-top: 1rem;
+        input {
+          font-size: 1.3rem;
+          font-weight: 600;
+          width: 90%;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid #666666;
+        }
+        select {
+          font-size: 1.3rem;
+          font-weight: 600;
+          width: 90%;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid #666666;
+        }
+      }
+    }
+  }
+  .noticePeriodReverse {
+    display: none;
+  }
+}
+
+.prevBtn {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+.previous {
+  height: 2.6rem;
+  width: 10rem;
+  outline: none;
+  border: none;
+  background-color: #3fd28b;
+  border-radius: 0.3rem;
+  box-shadow: 1px 1px 3px 0px #0000003d;
+  cursor: pointer;
+  margin-left: 1.5rem;
+  text-transform: uppercase;
+}
