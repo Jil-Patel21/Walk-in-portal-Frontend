@@ -23,9 +23,7 @@
         <p>Year of Passing*</p>
         <div class="eduQualificationDetail">
           <select name="" id="" formControlName="yearOfPassing">
-            <option value="2020">2020</option>
-            <option value="2022">2022</option>
-            <option value="2024">2024</option>
+            <option *ngFor="let item of year;let i=index" value="{{i+1}}">{{item.year_of_passing}}</option>
           </select>
         </div>
       </div>
@@ -34,9 +32,7 @@
           <p>Qualification*</p>
           <div class="eduInfo">
             <select name="" id="" formControlName="qualification">
-              <option value="B.Tech">B.Tech</option>
-              <option value="BCA">BCA</option>
-              <option value="MCA">MCA</option>
+              <option *ngFor="let item of qualification;let i=index" value="{{i}}">{{item.qualification_type}}</option>
             </select>
           </div>
         </div>
@@ -44,9 +40,7 @@
           <p>Stream*</p>
           <div class="eduInfo">
             <select name="" id="" formControlName="stream">
-              <option value="science">science</option>
-              <option value="commerce">commerce</option>
-              <option value="arts">arts</option>
+              <option *ngFor="let item of stream;let i=index;" value="{{i}}">{{item.stream_type}}</option>
             </select>
           </div>
         </div>
@@ -54,9 +48,7 @@
           <p>College*</p>
           <div class="eduInfo">
             <select name="" id="" formControlName="college">
-              <option value="L.D">L.D</option>
-              <option value="L.J">L.J</option>
-              <option value="L.M">L.M</option>
+               <option *ngFor="let item of college;let i=index" value="{{i}}">{{item.college_name}}</option>
             </select>
           </div>
         </div>
@@ -88,15 +80,15 @@
         <div class="profQualificationDetailRadio">
           <input
             type="radio"
-            value="Fresher"
+            value="0"
             formControlName="applicantType"
-            (click)="onClickApplicantTypeExp()"
+            (click)="onClickApplicantType(0)"
           />&nbsp;&nbsp;Fresher
           <input
             type="radio"
-            value="Experienced"
+            value="1"
             formControlName="applicantType"
-            (click)="onClickApplicantTypeFre()"
+            (click)="onClickApplicantType(1)"
           />&nbsp;&nbsp;Experienced
         </div>
       </div>
@@ -140,10 +132,10 @@
               <div class="cheboxes" *ngFor="let data of Tech; let i = index">
                 <input
                   type="checkbox"
-                  [value]="data.name"
+                  [value]="i"
                   (change)="onCheckboxChangeExpertise($event)"
                   [checked]="checkExpert[i]"
-                />&nbsp;&nbsp;{{ data.name }}
+                />&nbsp;&nbsp;{{ data.technology_name }}
               </div>
             </div>
             <p class="other">If others, please mention</p>
@@ -157,14 +149,14 @@
         <p class="technologyTitle">
           Select All The Technologies You are familiar In
         </p>
-        <div class="technologyCheckbox">
+        <div class="technologyCheckbox" *ngIf="Tech!==undefined">
           <div class="cheboxes" *ngFor="let data of Tech; let i = index">
             <input
               type="checkbox"
-              [value]="data.name"
+              [value]="i"
               (change)="onCheckboxChangeFamiliar($event)"
               [checked]="checkFamiliar[i]"
-            />&nbsp;&nbsp;{{ data.name }}
+            />&nbsp;&nbsp;{{ data.technology_name }}
           </div>
         </div>
         <p class="other">If others, please mention</p>
@@ -216,7 +208,7 @@
               <div class="noticePeriodInfo">
                 <p>If Yes, when will your notice period end?*</p>
                 <div class="profQualificationDetail">
-                  <input type="text" formControlName="noticePeriodEnd" />
+                  <input type="date" formControlName="noticePeriodEnd" />
                 </div>
               </div>
               <div class="noticePeriodInfo">

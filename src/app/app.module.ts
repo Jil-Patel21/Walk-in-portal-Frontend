@@ -13,6 +13,9 @@ import { PersonalInformationComponent } from './register/personal-information/pe
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReviewComponent } from './register/review/review.component';
 import { QualificationComponent } from './register/qualification/qualification.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -33,9 +36,23 @@ import { QualificationComponent } from './register/qualification/qualification.c
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+    }),
+    BrowserAnimationsModule,
+    JwtModule.forRoot({ // for JwtHelperService
+      config: {
+        tokenGetter: () => {
+          return '';
+        }
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

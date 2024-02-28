@@ -2,7 +2,7 @@
     <div class="line">
 
     </div>
-   <form class="form">
+   <form class="form" [formGroup]="form">
         <div class="title">
             <p>
                 Log in
@@ -11,7 +11,7 @@
         <div class="emailPassword">
             <div class="email">
                 <div class="inp">
-                    <input type="text" name="" placeholder="Email ID*">
+                    <input type="text" name="" placeholder="Email ID*" formControlName="email">
                 </div>
                 <div class="forget">
                     <p>
@@ -21,7 +21,7 @@
             </div>
             <div class="password">
                 <div class="inp">
-                    <input type="password" name="" placeholder="Password*" #image>
+                    <input type="password" name="" placeholder="Password*" #image formControlName="password">
                     <img src="assets/preview.png" alt="hyy it's" (click)="showPassword()">
                 </div>
                 <div class="forget">
@@ -33,10 +33,10 @@
         </div>
         <div class="logBtn">
             <div class="remember">
-                <input type="checkbox">&nbsp;Remember Me
+                <input type="checkbox" (change)="rememberMe($event)">&nbsp;Remember Me
             </div>
             <div class="btn">
-                <button (click)="onSubmitLogin()">
+                <button (click)="onSubmitLogin()" [disabled]="form.invalid">
                     LOG IN
                 </button>
             </div>

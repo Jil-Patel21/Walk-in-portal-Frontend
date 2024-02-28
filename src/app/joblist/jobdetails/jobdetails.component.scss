@@ -159,7 +159,7 @@
       font-weight: 600;
       font-size: 1.1rem;
       line-height: 2rem;
-      margin-bottom: 1rem;
+      white-space:pre-line;
     }
   }
 }
@@ -212,15 +212,10 @@
         width: 3.2rem;
       }
     }
-    button {
-      color: #1f7a54;
-      background-color: white;
-      outline: none;
-      border: none;
-      font-weight: 600;
-      font-size: 1.5rem;
-      margin-left: 0.5rem;
-      cursor: pointer;
+    p{
+      color:#1f7a54;
+      font-size: 1.4rem;
+      margin-right: 0.5rem;
     }
   }
 }
@@ -283,11 +278,12 @@ hr {
     }
     p:nth-child(2) {
       margin-top: 1rem;
-      color: black;
       font-weight: 600;
       font-size: 1.1rem;
       line-height: 2rem;
+      white-space:pre-line;
     }
+   
   }
 }
 

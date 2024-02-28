@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DatapassingService } from 'src/app/Services/datapassing.service';
+import { JobsService } from 'src/app/Services/jobs.service';
 
 @Component({
   selector: 'app-personal-information',
@@ -14,21 +15,19 @@ import { DatapassingService } from 'src/app/Services/datapassing.service';
   styleUrls: ['./personal-information.component.scss'],
 })
 export class PersonalInformationComponent {
+  @ViewChild('image') ig: ElementRef;
+
   formDetails: FormBuilder = inject(FormBuilder);
   route: Router = inject(Router);
   data = inject(DatapassingService);
   active: ActivatedRoute = inject(ActivatedRoute);
+  jobService: JobsService = inject(JobsService);
 
   form: FormGroup;
   jobDetailsId: number;
   checkArr: boolean[] = [false, false, false, false, false];
   sendUpdate: boolean = false;
-  
-  jobRoles: { name: string }[] = [
-    { name: 'Instructional Designer' },
-    { name: 'Software Engineer' },
-    { name: 'Software Quality Engineer' },
-  ];
+  jobRoles: { job_role_name: string, id: number }[];
 
   ngOnInit() {
     this.form = this.data.getFormDetails();
@@ -37,13 +36,17 @@ export class PersonalInformationComponent {
       return this.jobDetailsId = +link.get('id');
     })
 
-    const ar: FormArray = this.form.get('perosnalInfo.preferRoles') as FormArray;
-    let i = 0;
-    ar.controls.forEach((item: FormControl) => {
-      if (item.value === this.jobRoles[i].name) {
-        this.checkArr[i] = true;
-      }
-      i++;
+    this.jobService.getEnumDetails().subscribe((res: any) => {
+      this.jobRoles = res.enumJData;
+      localStorage.setItem("enumData",JSON.stringify(res));
+      const ar: FormArray = this.form.get('perosnalInfo.preferRoles') as FormArray;
+      let i = 0;
+      ar.controls.forEach((item: FormControl) => {
+        if (+item.value === this.jobRoles[i].id) {
+          this.checkArr[i] = true;
+        }
+        i++;
+      });
     });
 
     const a = <FormArray>this.form.get('perosnalInfo.sendUpdate') as FormArray;
@@ -58,6 +61,13 @@ export class PersonalInformationComponent {
       { icon: false, clr: false },
       { icon: false, clr: false },
     ]);
+  }
+  showPassword() {
+    if (this.ig.nativeElement.type === 'password') {
+      this.ig.nativeElement.type = 'text';
+    } else {
+      this.ig.nativeElement.type = 'password';
+    }
   }
   onCheckboxChange(e) {
     if (e.target.checked) {

@@ -17,12 +17,12 @@
         </div>
         <div class="date">
             <p>
-                03rd July 2021
+              {{job.start_date | date:'dd'}}<span>{{dateOrdinal}}</span> {{job.start_date | date:'MMM'}}  {{job.start_date | date:'yyyy'}} 
             </p>
         </div>
         <div class="time">
             <p>
-                {{this.form.get('timeSlot').value}}
+              {{timeSlot[+obj.timeSlotID-1][0] | date:'shortTime'}} To {{timeSlot[+obj.timeSlotID-1][1] | date:'shortTime' }}
             </p>
         </div>
       </div>

@@ -1,20 +1,19 @@
-<div class="jobContainer">
+<div class="jobContainer" *ngIf="jobs!==undefined">
   <div class="job"  *ngFor="let job of jobs;let i=index">
-    <div class="expires" *ngIf="job.expires.isExpire">
-        <p>{{job.expires.expireMsg}}</p>
+    <div class="expires" *ngIf="job.is_expire">
+        <p>{{job.expire_msg}}</p>
     </div>
     <div class="jobTitle">
       <div class="title">
-        <p>{{job.jobRole}}</p>
+        <p>{{job.job_title}}</p>
       </div>
-      <button class="applyBtn" *ngIf="job.isApplyBtnPresent">APPLY</button>
     </div>
     <div class="dateTimeVenue">
       <div class="dateTime">
         <p>Date & Time :</p>
       </div>
       <div class="dateVenue">
-        <p>{{job.date}} | <span class="locationImage"><img src="https://static.vecteezy.com/system/resources/previews/000/552/683/non_2x/geo-location-pin-vector-icon.jpg" alt="" /></span>&nbsp;<span>{{job.location}}</span></p>
+        <p>{{job.start_date | date:'dd-MMM-yyyy'}} To {{job.end_date | date:'dd-MMM-yyyy'}} | <span class="locationImage"><img src="https://static.vecteezy.com/system/resources/previews/000/552/683/non_2x/geo-location-pin-vector-icon.jpg" alt="" /></span>&nbsp;<span>{{job.location}}</span></p>
       </div>
     </div>
     <hr />
@@ -30,13 +29,13 @@
             <p>{{jobRoles.jobRoleName}}</p>
           </div>
       </div>
-      <div class="mba" *ngIf="job.mba.isMbaInternship">
+      <div class="mba" *ngIf="job.is_internship_opportunity_for_mca">
          <p>
-            {{job.mba.mbaMsg}}
+          Internship Opportunity for MCA Students
          </p>
       </div>
     </div>
-    <div class="viewBtn" *ngIf="!job.isMoreDetailsBtnPresent">
+    <div class="viewBtn">
       <button (click)="onSubmit(i)">VIEW MORE DETAILS</button>
     </div>
   </div>

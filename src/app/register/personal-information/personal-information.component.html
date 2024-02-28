@@ -13,6 +13,13 @@
         <p>Email*</p>
         <input type="email" formControlName="email" />
       </div>
+      <div class="passwordInp">
+        <p>Password*</p>
+        <div class="passwordInpShow">
+          <input type="password" name="" #image formControlName="password">
+          <img src="assets/preview.png" alt="hyy it's" (click)="showPassword()">
+        </div>
+      </div>
       <div class="PhoneNumber">
         <p>Phone Number*</p>
         <div class="number">
@@ -42,11 +49,11 @@
           <input
             type="checkbox"
             name="roles"
-            [value]="data.name"
+            [value]="i+1"
             (change)="onCheckboxChange($event)"
             [checked]="checkArr[i]"
           />
-          &nbsp;&nbsp;{{ data.name }}
+          &nbsp;&nbsp;{{ data.job_role_name }}
         </div>
       </div>
       <div class="inp">

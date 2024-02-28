@@ -1,8 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { Job } from '../Types/job';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { JobsService } from '../Services/jobs.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DatapassingService } from '../Services/datapassing.service';
 
 @Component({
   selector: 'app-joblist',
@@ -14,37 +14,27 @@ export class JoblistComponent implements OnInit{
   jobService: JobsService = inject(JobsService);
   route: Router = inject(Router);
   fs: FormBuilder = inject(FormBuilder);
-
+  data = inject(DatapassingService);
   form: FormGroup;
-  jobs: Job[] = this.jobService.jobs;
-  // jobs: Job[];
-  // j: Job[];
-  constructor(private p: JobsService) {
-    // this.p.list().subscribe((res) => {
-    //   console.log(res);
-    //   this.j = res;
-    // })
-    function result(res) {
-      console.log(res);
-      this.jobs = res;
-    }
-    this.p.list().subscribe(result);
-  }
+  jobs: any;
+ 
+  
   ngOnInit(): void {
-    // this.form = this.fs.group({
-    //   timeSlot: ['', Validators.required],
-    //   preferRoles:this.fs.array([],Validators.required)
-    // })
-    // this.jobService.list().subscribe((res) => {
-    //   this.j = res;
-    // })
-    // console.log(this.j);
+    localStorage.removeItem("loginData");
+    this.jobService.list().subscribe((res:any) => {
+      this.jobs = res;
+      localStorage.setItem("jobData", JSON.stringify(this.jobs));
+    })
   }
-  func() {
-    console.log(this.jobs.length);
-    console.log(this.jobs[0].jobRole);
-  }
-  onSubmit(ind:number) {
-    this.route.navigateByUrl('/login/'+ind);
+
+  onSubmit(ind: number) {
+   
+    if (this.data.isAuthenticated()) {
+      this.route.navigateByUrl('/login/'+ind);
+    }
+    else {
+      this.route.navigateByUrl('/joblist/jobdetails/'+ind);
+    }
+
   }
 }

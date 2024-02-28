@@ -8,6 +8,7 @@ import { PersonalInformationComponent } from './register/personal-information/pe
 import { QualificationComponent } from './register/qualification/qualification.component';
 import { ReviewComponent } from './register/review/review.component';
 import { WalkInLoginComponent } from './walk-in-login/walk-in-login.component';
+import { jobApply, jobDetails } from './guards/auth.guards';
 
 const routes: Routes = [
   {
@@ -38,10 +39,10 @@ const routes: Routes = [
     path: 'joblist', component: JoblistComponent, pathMatch:'full'
   },
   {
-    path:'joblist/jobdetails/jobapplied',component:JobappliedComponent,pathMatch:'full'
+    path:'joblist/jobdetails/jobapplied',component:JobappliedComponent,pathMatch:'full',canActivate:[jobApply]
   },
   {
-    path:'joblist/jobdetails/:id',component:JobdetailsComponent,pathMatch:'full'
+    path:'joblist/jobdetails/:id',component:JobdetailsComponent,pathMatch:'full',canActivate:[jobDetails]
   },
   {
     path:'',component:JoblistComponent,pathMatch:'full'

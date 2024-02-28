@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DatapassingService } from 'src/app/Services/datapassing.service';
+import { JobsService } from 'src/app/Services/jobs.service';
 
 @Component({
   selector: 'app-qualification',
@@ -19,6 +20,7 @@ export class QualificationComponent implements OnInit, OnDestroy {
   route: Router = inject(Router);
   data = inject(DatapassingService);
   active: ActivatedRoute = inject(ActivatedRoute);
+  jobService: JobsService = inject(JobsService);
 
   form1: FormGroup;
   form: FormGroup;
@@ -28,13 +30,13 @@ export class QualificationComponent implements OnInit, OnDestroy {
   checkExpert: boolean[] = [false, false, false, false, false];
   checkFamiliar: boolean[] = [false, false, false, false, false];
 
-  Tech: { name: string }[] = [
-    { name: 'javascript' },
-    { name: 'Angular JS' },
-    { name: 'React' },
-    { name: 'Node JS' },
-    { name: 'Other' },
-  ];
+  Tech: { technology_name: string; id: number }[];
+  college: { college_name: string; id: number }[];
+  applicantType: { applicant_type_name: string; id: number }[];
+  stream: { stream_type: string; id: number }[];
+  qualification: { qualification_type: string; id: number }[];
+  year: { year_of_passing: number; id: number }[];
+
   jobDetailsId: number;
 
   ngOnInit(): void {
@@ -43,6 +45,24 @@ export class QualificationComponent implements OnInit, OnDestroy {
       return (this.jobDetailsId = +link.get('id'));
     });
 
+    const res: any = JSON.parse(localStorage.getItem('enumData'));
+    this.Tech = res.enumTData;
+    this.college = res.enumCData;
+    this.stream = res.enumSData;
+    this.qualification = res.enumQData;
+    this.applicantType = res.enumAData;
+    this.year = res.enumYData;
+
+    let ar: FormArray = <FormArray>(
+      this.form.get('qualificationInfo.familiarTech')
+    );
+    let i = 0;
+    ar.controls.forEach((item: FormControl) => {
+      if (+item.value === this.Tech[i].id - 1) {
+        this.checkFamiliar[i] = true;
+      }
+      i++;
+    });
     let arr: FormArray;
     if (
       this.form.get('qualificationInfo.expForm')['controls'][0] !== undefined
@@ -54,28 +74,20 @@ export class QualificationComponent implements OnInit, OnDestroy {
       );
       let i = 0;
       arr.controls.forEach((item: FormControl) => {
-        if (item.value === this.Tech[i].name) {
+        if (+item.value === this.Tech[i].id - 1) {
           this.checkExpert[i] = true;
         }
         i++;
       });
     }
 
-    let ar: FormArray = <FormArray>(
-      this.form.get('qualificationInfo.familiarTech')
-    );
-    let i = 0;
-    ar.controls.forEach((item: FormControl) => {
-      if (item.value === this.Tech[i].name) {
-        this.checkFamiliar[i] = true;
-      }
-      i++;
-    });
-
-    if (
-      this.form.get('qualificationInfo.applicantType').value === 'Experienced'
-    ) {
+    if (this.form.get('qualificationInfo.applicantType').value === '1') {
       this.diplayExp = false;
+    }
+    if (
+      this.form.get('qualificationInfo.appliedForAnyTestInZeus').value === 'yes'
+    ) {
+      this.displayTest = false;
     }
     if (
       this.form.get('qualificationInfo.expForm')['controls'][0] !== undefined
@@ -142,23 +154,25 @@ export class QualificationComponent implements OnInit, OnDestroy {
       });
     }
   }
-  onClickApplicantTypeExp() {
-    this.diplayExp = true;
-    (<FormArray>this.form.get('qualificationInfo.expForm')).removeAt(0);
-  }
-  onClickApplicantTypeFre() {
-    if (this.diplayExp) {
-      const formGrp = this.fs.group({
-        yearOfPassing: ['', Validators.required],
-        currentCTC: ['', Validators.required],
-        expectedCTC: ['', Validators.required],
-        expertiseTech: this.fs.array([], Validators.required),
-        otherExpertiseTech: [''],
-        isOnNoticePeriod: ['', Validators.required],
-        noticeInfo: this.fs.array([]),
-      });
-      (<FormArray>this.form.get('qualificationInfo.expForm')).push(formGrp);
-      this.diplayExp = false;
+
+  onClickApplicantType(ind: number) {
+    if (ind == 0) {
+      this.diplayExp = true;
+      (<FormArray>this.form.get('qualificationInfo.expForm')).removeAt(0);
+    } else {
+      if (this.diplayExp) {
+        const formGrp = this.fs.group({
+          yearOfPassing: ['', Validators.required],
+          currentCTC: ['', Validators.required],
+          expectedCTC: ['', Validators.required],
+          expertiseTech: this.fs.array([], Validators.required),
+          otherExpertiseTech: [''],
+          isOnNoticePeriod: ['', Validators.required],
+          noticeInfo: this.fs.array([]),
+        });
+        (<FormArray>this.form.get('qualificationInfo.expForm')).push(formGrp);
+        this.diplayExp = false;
+      }
     }
   }
 
@@ -195,6 +209,7 @@ export class QualificationComponent implements OnInit, OnDestroy {
     }
   }
   onClickTestNo() {
+    console.log(this.form);
     this.displayTest = true;
     (<FormArray>this.form.get('qualificationInfo.zeusTest')).removeAt(0);
   }
